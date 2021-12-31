@@ -5,6 +5,7 @@
     <title>摸鱼办</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/static/moyu.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
     <script>
         var _hmt = _hmt || [];
@@ -817,38 +818,58 @@
 
         /* Please visit the URL below for more information: */
         /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+
+
+
+
+
+
     </style>
 </head>
 
 <body for="html-export">
 <div class="mume markdown-preview  ">
-    <h1 align="center">&#x6478;&#x9C7C;&#x529E;&#x516C;&#x5BA4; &#x1F41F;</h1>
+    <h1 align="center">摸鱼办公室</h1>
     <p align="center">
-        &#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;&#x1F41F;
+        <img src="/static/moyu.gif" alt="">
     </p>
     <center>
-        【摸鱼办公室】今天是 {{ now_ }} {{ week_day_ }}
+        【摸鱼办提醒您】 今天是 {{ now_ }} {{ week_day_ }}
         <br><br>
         <p>
-            &#x4F60;&#x597D;&#xFF0C;&#x6478;&#x9C7C;&#x4EBA;&#xFF0C;&#x5DE5;&#x4F5C;&#x518D;&#x7D2F;&#xFF0C;&#x4E00;&#x5B9A;&#x4E0D;&#x8981;&#x5FD8;&#x8BB0;&#x6478;&#x9C7C;&#x54E6;
-            &#xFF01;<br>
-            &#x6709;&#x4E8B;&#x6CA1;&#x4E8B;&#x8D77;&#x8EAB;&#x53BB;&#x8336;&#x6C34;&#x95F4;&#x53BB;&#x5ECA;&#x9053;&#x53BB;&#x5929;&#x53F0;&#x8D70;&#x8D70;&#xFF0C;&#x522B;&#x8001;&#x5728;&#x5DE5;&#x4F4D;&#x4E0A;&#x5750;&#x7740;&#x3002;<br>
-            &#x591A;&#x559D;&#x70B9;&#x6C34;&#xFF0C;&#x94B1;&#x662F;&#x8001;&#x677F;&#x7684;&#xFF0C;&#x4F46;&#x547D;&#x662F;&#x81EA;&#x5DF1;&#x7684;
-            !</p>
+            你好，摸鱼人，工作再累，一定不要忘记摸鱼哦 ！<br>
+            有事没事起身去茶水间去廊道去天台走走，别老在工位上坐着。<br>
+            多喝点水，钱是老板的，但命是自己的 !
+        </p>
 
-        {% for v_ in time_ %}
-            <p>🐟 距离 {{ v_.title }} 放假还有 {{ v_.v_ }} 天</p>
+
+        <p>
+            {% for v_ in time_ %}
+            🐟 距离 {{ v_.title }} 放假还有 {{ v_.v_ }} 天
+        </p>
         {% else %}
-            <p>沒有任何值</p>
+        <p>沒有任何值</p>
         {% endfor %}
 
+
+        <p>
+            【友情提示】三甲医院 ICU 躺一天平均费用大概一万块。<br>
+            你晚一天进 ICU，就等于为你的家庭多赚一万块。少上班，多摸鱼。<br>
+            上班是帮老板赚钱，摸鱼是赚老板的钱！最后，祝愿天下所有摸鱼人，都能愉快的渡过每一天 !
+        </p>
+
+
     </center>
+
     <br><br>
     <p align="right">摸鱼办 宣 </p>
 
 </div>
 
-<center><br><a style="font-size: 14px;font-weight: 100;color: #aaa;" href="https://beian.miit.gov.cn/">粤ICP备2021173696号-1</a></center>
+<center>
+    <a style="font-size: 14px;font-weight: 100;color: #aaa;" href="https://beian.miit.gov.cn/">粤ICP备2021173696号-1</a>
+</center>
 </body>
 
 </html>

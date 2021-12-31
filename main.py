@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import datetime
+
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from zhdate import ZhDate as lunar_date
 
@@ -13,6 +15,8 @@ app = FastAPI(
 )
 
 templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 def get_week_day(date):
     week_day_dict = {
@@ -27,6 +31,7 @@ def get_week_day(date):
     day = date.weekday()
     return week_day_dict[day]
 
+
 def time_parse(today):
     # print(today.year, today.month, today.day)
     # print("大年时间: ", lunar_date(today.year+1, 1, 1).to_datetime().date())
@@ -37,7 +42,9 @@ def time_parse(today):
     # print("劳动时间: ", f"{today.year+1}-05-01")
     # print("国庆时间: ", f"{today.year+1}-10-01")
 
-    distance_big_year = (lunar_date(today.year + 1, 1, 1).to_datetime().date() - today).days
+    distance_big_year = (lunar_date(today.year, 1, 1).to_datetime().date() - today).days
+    distance_big_year = distance_big_year if distance_big_year > 0 else (
+                lunar_date(today.year + 1, 1, 1).to_datetime().date() - today).days
 
     distance_5_5 = (lunar_date(today.year, 5, 5).to_datetime().date() - today).days
     distance_5_5 = distance_5_5 if distance_5_5 > 0 else (
@@ -47,7 +54,9 @@ def time_parse(today):
     distance_8_15 = distance_8_15 if distance_8_15 > 0 else (
             lunar_date(today.year + 1, 8, 15).to_datetime().date() - today).days
 
-    distance_year = (datetime.datetime.strptime(f"{today.year + 1}-01-01", "%Y-%m-%d").date() - today).days
+    distance_year = (datetime.datetime.strptime(f"{today.year}-01-01", "%Y-%m-%d").date() - today).days
+    distance_year = distance_year if distance_year > 0 else (
+            datetime.datetime.strptime(f"{today.year + 1}-01-01", "%Y-%m-%d").date() - today).days
 
     distance_4_5 = (datetime.datetime.strptime(f"{today.year}-04-05", "%Y-%m-%d").date() - today).days
     distance_4_5 = distance_4_5 if distance_4_5 > 0 else (
